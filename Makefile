@@ -6,7 +6,7 @@
 #    By: alienard <alienard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 18:51:33 by alienard          #+#    #+#              #
-#    Updated: 2020/03/08 19:08:48 by alienard         ###   ########.fr        #
+#    Updated: 2020/03/12 17:29:34 by alienard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,15 +27,11 @@ SRCSBONUS =		./ft_atoi_base_bonus.s \
 
 SRCC =			main.c
 
-SRCCBONUS =		main_bonus.c
-
 OBJS = 		$(SRCS:.s=.o)
 
 OBJSBONUS = 	$(SRCSBONUS:.s=.o)
 
 OBJC			= $(SRCC:.c=.o)
-
-OBJCBONUS		= $(SRCCBONUS:.c=.o)
 
 AS = 		nasm
 
@@ -59,10 +55,6 @@ bonus:		$(OBJS) $(OBJSBONUS)
 
 test:			all $(OBJC)
 				$(CC) -L. -lasm $(OBJC)
-				./a.out
-
-test_bonus:		bonus $(OBJCBONUS)
-				$(CC) -L. -lasm $(OBJCBONUS)
 				./a.out
 
 clean:

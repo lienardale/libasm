@@ -6,7 +6,7 @@
 /*   By: alienard <alienard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 08:54:30 by alienard          #+#    #+#             */
-/*   Updated: 2020/03/10 13:55:47 by alienard         ###   ########.fr       */
+/*   Updated: 2020/03/12 12:40:22 by alienard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,18 @@ static int		ft_inbase(char s1, char *s2)
 	return (-1);
 }
 
-int				ft_atoi_base(char *str, char *base)
+int				atoi_base(char *str, char *base)
 {
-	int i;
-	int ret;
-	int neg;
+	int	i;
+	int	ret;
+	int	neg;
+	int	err;
 
 	i = 0;
 	ret = 0;
 	neg = 1;
 	if (ft_check_base(base) == -1)
-		return (-1);
+		return (0);
 	while (((9 <= str[i] && str[i] <= 13) || str[i] == 32))
 		i++;
 	while ((str[i] == '-' || str[i] == '+'))
@@ -75,10 +76,12 @@ int				ft_atoi_base(char *str, char *base)
 		(str[i] == '-') ? neg = -neg : 0;
 		i++;
 	}
-	while (ft_inbase(str[i], base) != -1)
+	while ((err = ft_inbase(str[i], base)) >= 0 && str[i])
 	{
 		ret = ret * ft_ln_base(base) + ft_inbase(str[i], base);
 		i++;
 	}
+	if (str[i])
+		return (0);
 	return (ret * neg);
 }

@@ -6,7 +6,7 @@
 /*   By: alienard <alienard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 19:03:37 by alienard          #+#    #+#             */
-/*   Updated: 2020/03/10 12:38:08 by alienard         ###   ########.fr       */
+/*   Updated: 2020/03/12 12:44:04 by alienard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ void	ft_free_data(void *data)
 	data = NULL;
 }
 
-int main(void)
+int		main(void)
 {
 	green();
 	printf("\nPartie bonus\n\n");
 	reset();
-	ft_atoi_base_main();
-	ft_list_push_front_main();
 	ft_list_size_main();
-	ft_list_sort_main();
+	ft_list_push_front_main();
 	ft_list_remove_if_main();
+	ft_list_sort_main();
+	ft_atoi_base_main();
 	printf("\n");
 	return (0);
 }

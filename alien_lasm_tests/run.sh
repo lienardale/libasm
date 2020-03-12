@@ -1,3 +1,6 @@
+cd ..
+make
+cd alien_lasm_tests
 make test
 tmp=$(diff test.txt test_2.txt)
 if [ "$tmp" == "" ];then
