@@ -36,7 +36,7 @@ _ft_atoi_base:					; rdi = av1 = str; rsi = av2 = base
 	cmp		al, '+'
 	je		.ret
 	cmp		al, '-'
-	je		.ret				; si elle contient +/-, on sport
+	je		.ret				; si elle contient +/-, on sort
 	mov		r12, r13			; on store la BASE dans R12 pour le check doublon
 	cmp		al, 0				; si on est pas en fin de base
 	jne		.check_doublon		; alors on check les doublons
